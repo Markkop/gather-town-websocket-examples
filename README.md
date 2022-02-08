@@ -20,6 +20,15 @@ npm install
 npm run dev
 ```
 
+## Tips
+
+### Finding the event name and payload you wish to use
+Go to `node_modules/@gathertown/gather-game-common/src/events.proto` and check `ServerClientEvent` message.  
+You might want to add this [extension](https://marketplace.visualstudio.com/items?itemName=zxh404.vscode-proto3) for syntax highligth.  
+On VSCode, select the the event name such as `MapSetObjects`, press `Ctrl+D` and find it's payload.  
+You can also `Ctrl+Click` on the payload class names to check them content. In this case, `WireObject`.
+
+
 ## References
 
 * [Gather WebSocket API Documentation](https://gathertown.notion.site/Gather-Websocket-API-bf2d5d4526db412590c3579c36141063)
