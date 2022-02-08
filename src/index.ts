@@ -6,6 +6,9 @@ require('dotenv').config()
 const apiKey = process.env.GATHER_API_KEY as string
 const spaceId = process.env.GATHER_SPACE_ID?.replace('/', '\\')
 
+// Change this ID to the objId you get from the console when interacting with the object you wish to change
+const boardObjId = 'Bulletin (Note) - BgaTeaDUwpoAobpTSTwOU_70959c6e-5d49-482f-b07d-74ffb2fd03ec'
+
 global.WebSocket = IsomorphicWS;
 const game = new Game(spaceId, () => Promise.resolve({ apiKey }));
 game.connect();
@@ -15,10 +18,13 @@ game.subscribeToConnection((connected) => console.log("connected?", connected));
 //   console.log(context?.player?.name, "moved!");
 // });
 
-const boardObjId = 'Bulletin (Note) - BgaTeaDUwpoAobpTSTwOU_70959c6e-5d49-482f-b07d-74ffb2fd03ec'
 game.subscribeToEvent("playerInteracts", (data, context: ServerClientEventContext) => {
-  const mapId = context?.player?.map as string
+  const player = context?.player
+  const playerName = player?.name
+  const mapId = player?.map as string
   const interactedObjId = data.playerInteracts.objId
+  console.log(`${playerName} interacted with objId: ${interactedObjId}`)
+
   if (boardObjId !== boardObjId) return
   const { obj, key } = findObjectInMap(game, interactedObjId, mapId)
 
