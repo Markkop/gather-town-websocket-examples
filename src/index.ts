@@ -4,7 +4,7 @@ import IsomorphicWS from "isomorphic-ws"
 require('dotenv').config()
 
 const apiKey = process.env.GATHER_API_KEY as string
-const spaceId = process.env.GATHER_SPACE_ID as string
+const spaceId = process.env.GATHER_SPACE_ID?.replace('/', '\\')
 
 global.WebSocket = IsomorphicWS;
 const game = new Game(spaceId, () => Promise.resolve({ apiKey }));
