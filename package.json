@@ -1,12 +1,13 @@
 {
   "name": "codecon-gather-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "An API that interacts with Gather.town API and customizes the user experience on the CodeCon Tech Event",
   "main": "index.js",
   "engines": {
     "node": ">=14"
   },
   "scripts": {
+    "dev": "ts-node src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -14,11 +15,13 @@
   "license": "ISC",
   "dependencies": {
     "@gathertown/gather-game-client": "33.0.3",
+    "dotenv": "^16.0.0",
     "isomorphic-ws": "^4.0.1",
     "ws": "^8.2.1"
   },
   "devDependencies": {
     "@types/node": "^16.7.10",
+    "ts-node": "^10.5.0",
     "typescript": "4.5.5"
   }
 }
