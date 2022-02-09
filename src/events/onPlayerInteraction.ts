@@ -2,11 +2,14 @@ import { ServerClientEventByCase, ServerClientEventContext } from "@gathertown/g
 import { mirrorObjId, updateUserStatusWithRandomTitle } from "../interactions/titleGenerator"
 import { boardObjId, updateCounterBoardObject } from "../interactions/counterBoard"
 import { jukeboxObjId, playRandomMusic } from "../interactions/jukebox"
+import { hologramObjId } from "../interactions/rpgLikeTalking"
+import { getAccessKey } from "../interactions/getAccessKey"
 
 const actionsByObjectId: Record<string, Function> = {
   [boardObjId]: updateCounterBoardObject,
   [mirrorObjId]: updateUserStatusWithRandomTitle,
-  [jukeboxObjId]: playRandomMusic
+  [jukeboxObjId]: playRandomMusic,
+  [hologramObjId]: getAccessKey
 }
 
 export function onPlayerInteraction (data: ServerClientEventByCase<'playerInteracts'>, context: ServerClientEventContext) {

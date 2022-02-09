@@ -3,8 +3,8 @@ import game from "..";
 import { Position } from "../types";
 import { getMapObjectById } from "../utils/objects";
 
-const hologramObjId = "HologramAvatar - e86LVs7JpcL3lbuK85oz_feecb91a-d414-49e6-9c18-4e3e41811ad8"
-const text = 'Hello stranger. How are you doing?'
+export const hologramObjId = "HologramAvatar - e86LVs7JpcL3lbuK85oz_feecb91a-d414-49e6-9c18-4e3e41811ad8"
+const text = "It's dangerous to go alone! Take this."
 let isTalking = false
 let i = 1
 
@@ -47,6 +47,4 @@ export function detectAndTriggerRPGLikeTalking(playerNewPosition: Position, mapI
       isTalking = false
     }
   }, 200)
-
-
 }

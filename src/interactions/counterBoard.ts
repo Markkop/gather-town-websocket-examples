@@ -28,7 +28,7 @@ export function updateCounterBoardObject(data: ServerClientEventByCase<'playerIn
         [key as number]: {
           previewMessage: 'Press X to increase the counter',
           propertiesJson: JSON.stringify({
-            message: `I've got an interaction ${counter} times.\nYou're the ${getNumberWithOrdinalSuffix(counter + 1)}`
+            message: `I've got an interaction ${counter} times. You're the ${getNumberWithOrdinalSuffix(counter + 1)}. By the way, if you're having trouble going up, talk to the hologram.`
           }),
           _tags: []
         }
