@@ -1,4 +1,5 @@
 import game from "..";
+import { Position } from "../types";
 import { getMapObjectById } from "../utils/objects";
 
 export const bossObjectId = 'Bulletin (Note) - BgaTeaDUwpoAobpTSTwOU_80989e70-91e8-4503-9806-0f0713c2223f'
@@ -14,6 +15,12 @@ export const bossActivation: Record<string, boolean> = {
   boss: false
 }
 
+function hasMatchingCoordinates(playerCoord: Position, targetCoord: Position) {
+  if (playerCoord.x !== targetCoord.x) return false
+  if (playerCoord.y !== targetCoord.y) return false
+  if (targetCoord.direction && playerCoord.direction !== targetCoord.direction) return false
+  return true
+}
 
 export function setBossObject(mapId: string, active: boolean) {
   const { key } = getMapObjectById(bossObjectId, mapId)
@@ -65,3 +72,13 @@ export function setBossActivation(key: string, active: boolean, mapId: string) {
     return
   }
 } 
+
+export function detectAndRegisterBossTrigger(playerNewPosition: Position, mapId: string) {
+  if (hasMatchingCoordinates(playerNewPosition, plate1Location)) {
+    setBossActivation('plate1', true, mapId)
+  } 
+  
+  if (hasMatchingCoordinates(playerNewPosition, plate2Location)) {
+    setBossActivation('plate2', true, mapId)
+  } 
+}
