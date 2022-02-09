@@ -1,4 +1,5 @@
 
+import { ServerClientEventByCase, ServerClientEventContext } from "@gathertown/gather-game-client";
 import axios from "axios";
 import game from "..";
 
@@ -15,12 +16,13 @@ async function getRandomTitle() {
   return `The ${capitalize(adjectives[0])} ${capitalize(noums[0])}`
 }
 
-export async function updateUserStatusWithRandomTitle(objId: string, mapId: string) {
+export async function updateUserStatusWithRandomTitle(data: ServerClientEventByCase<'playerInteracts'>, context: ServerClientEventContext) {
   const title = await getRandomTitle()
   game.engine.sendAction({  
     $case: "setTextStatus",
     setTextStatus: {
       textStatus: title,
+      targetId: context.playerId
     }
   })
 }

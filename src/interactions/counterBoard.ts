@@ -1,3 +1,4 @@
+import { ServerClientEventByCase, ServerClientEventContext } from "@gathertown/gather-game-client";
 import game from "..";
 import { getMapObjectById } from "../utils/objects";
 
@@ -15,8 +16,10 @@ function getNumberWithOrdinalSuffix(number: number) {
   return number + "th";
 }
 
-export function updateCounterBoardObject(objId: string, mapId: string) {
-  const { key } = getMapObjectById(objId, mapId)
+export function updateCounterBoardObject(data: ServerClientEventByCase<'playerInteracts'>, context: ServerClientEventContext) {
+  const mapId = context?.player?.map as string
+  const interactedObjId = data.playerInteracts.objId
+  const { key } = getMapObjectById(interactedObjId, mapId)
   game.engine.sendAction({
     $case: "mapSetObjects",
     mapSetObjects: {

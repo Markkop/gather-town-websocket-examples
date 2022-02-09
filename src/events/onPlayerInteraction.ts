@@ -1,5 +1,5 @@
 import { ServerClientEventByCase, ServerClientEventContext } from "@gathertown/gather-game-client"
-import { mirrorObjId, updateUserStatusWithRandomTitle } from "../interactions/adjectiveGenerator"
+import { mirrorObjId, updateUserStatusWithRandomTitle } from "../interactions/titleGenerator"
 import { boardObjId, updateCounterBoardObject } from "../interactions/counterBoard"
 import { jukeboxObjId, playRandomMusic } from "../interactions/jukebox"
 
@@ -12,12 +12,11 @@ const actionsByObjectId: Record<string, Function> = {
 export function onPlayerInteraction (data: ServerClientEventByCase<'playerInteracts'>, context: ServerClientEventContext) {
   const player = context?.player
   const playerName = player?.name
-  const mapId = player?.map as string
   const interactedObjId = data.playerInteracts.objId
   console.log(`${playerName} interacted with objId: ${interactedObjId}`)
 
   const action = actionsByObjectId[interactedObjId]
   if (!action) return
 
-  action(interactedObjId, mapId)
+  action(data, context)
 }
