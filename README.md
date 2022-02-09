@@ -12,6 +12,7 @@ cp .env.example .env
 # Get GATHER_API_KEY from https://gather.town/apiKeys
 # Get GATHER_SPACE_ID from your space URL.
 # Eg: 5jnhRfDYRIUyDmbF/my-space
+# Get GATHER_MAP_ID from Mapmaker's Rooms panel
 
 # Install dependencies
 npm install
