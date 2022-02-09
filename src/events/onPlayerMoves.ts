@@ -1,12 +1,12 @@
 import { ServerClientEventByCase, ServerClientEventContext } from "@gathertown/gather-game-client"
 import { plate1Location, setBossActivation, plate2Location, detectAndRegisterBossTrigger } from "../interactions/boss"
 import { detectAndRegisterKonamiMovement } from "../interactions/konamiCode"
+import { detectAndRegisterMovementRanking } from "../interactions/movementRanking"
 import { detectAndTriggerRPGLikeTalking } from "../interactions/rpgLikeTalking"
 import { detectAndTeleportUnauthorizedUser } from "../interactions/teleportUnauthorizedUser"
 import { Position } from "../types"
 
 const playerPosition: Record<string, Position> = {}
-
 
 export function onPlayerMoves (data: ServerClientEventByCase<'playerMoves'>, context: ServerClientEventContext) {
   const player = context?.player
@@ -22,6 +22,7 @@ export function onPlayerMoves (data: ServerClientEventByCase<'playerMoves'>, con
   detectAndRegisterBossTrigger(playerNewPosition, mapId)
   detectAndTriggerRPGLikeTalking(playerNewPosition, mapId)
   detectAndTeleportUnauthorizedUser(playerNewPosition, mapId, playerId)
+  detectAndRegisterMovementRanking(playerNewPosition, playerPosition, mapId, playerId)
   playerPosition[playerId] = playerNewPosition
 
 }

@@ -4,12 +4,14 @@ import { boardObjId, updateCounterBoardObject } from "../interactions/counterBoa
 import { jukeboxObjId, playRandomMusic } from "../interactions/jukebox"
 import { hologramObjId } from "../interactions/rpgLikeTalking"
 import { getAccessKey } from "../interactions/getAccessKey"
+import { rankInfoObjectId, updateMovementRanking } from "../interactions/movementRanking"
 
 const actionsByObjectId: Record<string, Function> = {
   [boardObjId]: updateCounterBoardObject,
   [mirrorObjId]: updateUserStatusWithRandomTitle,
   [jukeboxObjId]: playRandomMusic,
-  [hologramObjId]: getAccessKey
+  [hologramObjId]: getAccessKey,
+  [rankInfoObjectId] : updateMovementRanking
 }
 
 export function onPlayerInteraction (data: ServerClientEventByCase<'playerInteracts'>, context: ServerClientEventContext) {
