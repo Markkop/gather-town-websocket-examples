@@ -1,10 +1,12 @@
 import { ServerClientEventByCase, ServerClientEventContext } from "@gathertown/gather-game-client"
 import { mirrorObjId, updateUserStatusWithRandomTitle } from "../interactions/adjectiveGenerator"
 import { boardObjId, updateCounterBoardObject } from "../interactions/counterBoard"
+import { jukeboxObjId, playRandomMusic } from "../interactions/jukebox"
 
 const actionsByObjectId: Record<string, Function> = {
   [boardObjId]: updateCounterBoardObject,
-  [mirrorObjId]: updateUserStatusWithRandomTitle
+  [mirrorObjId]: updateUserStatusWithRandomTitle,
+  [jukeboxObjId]: playRandomMusic
 }
 
 export function onPlayerInteraction (data: ServerClientEventByCase<'playerInteracts'>, context: ServerClientEventContext) {

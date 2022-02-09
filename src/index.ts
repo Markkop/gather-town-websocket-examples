@@ -24,5 +24,4 @@ game.subscribeToConnection((connected) => {
   game.subscribeToEvent("playerMoves", onPlayerMoves);
 });
 
-
 export default game
