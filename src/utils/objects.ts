@@ -1,6 +1,6 @@
-import { Game } from "@gathertown/gather-game-client";
+import game from '../index'
 
-export function getMapObjectById(game: Game, objId: string, mapId: string) {
+export function getMapObjectById(objId: string, mapId: string) {
   for (const _key in game.partialMaps[mapId].objects) {
     const key = parseInt(_key);
     const obj = game.partialMaps[mapId]?.objects?.[key];

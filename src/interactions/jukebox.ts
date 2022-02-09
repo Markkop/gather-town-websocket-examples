@@ -16,7 +16,7 @@ function getRandomMusicSrc() {
 
 export async function playRandomMusic(objId: string, mapId: string) {
   const src = getRandomMusicSrc()
-  const { key } = getMapObjectById(game, objId, mapId)
+  const { key } = getMapObjectById(objId, mapId)
   game.engine.sendAction({
     $case: "mapSetObjects",
     mapSetObjects: {

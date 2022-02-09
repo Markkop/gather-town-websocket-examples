@@ -16,7 +16,7 @@ export const bossActivation: Record<string, boolean> = {
 
 
 export function setBossObject(mapId: string, active: boolean) {
-  const { key } = getMapObjectById(game, bossObjectId, mapId)
+  const { key } = getMapObjectById(bossObjectId, mapId)
   game.engine.sendAction({
     $case: "mapSetObjects",
     mapSetObjects: {

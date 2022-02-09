@@ -16,7 +16,7 @@ function getNumberWithOrdinalSuffix(number: number) {
 }
 
 export function updateCounterBoardObject(objId: string, mapId: string) {
-  const { key } = getMapObjectById(game, objId, mapId)
+  const { key } = getMapObjectById(objId, mapId)
   game.engine.sendAction({
     $case: "mapSetObjects",
     mapSetObjects: {
