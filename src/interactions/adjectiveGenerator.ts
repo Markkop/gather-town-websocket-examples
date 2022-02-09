@@ -1,7 +1,6 @@
 
 import axios from "axios";
 import game from "..";
-import { getMapObjectById } from "../utils/objects";
 
 export const mirrorObjId = 'TreasuredMirror - 5bk9-P2G7xjlO0dz4U24s_7f51cdf8-6dcf-4898-9035-ba9356313498'
 
@@ -17,7 +16,6 @@ async function getRandomTitle() {
 }
 
 export async function updateUserStatusWithRandomTitle(objId: string, mapId: string) {
-  const { key } = getMapObjectById(game, objId, mapId)
   const title = await getRandomTitle()
   game.engine.sendAction({  
     $case: "setTextStatus",
