@@ -23,7 +23,7 @@ export function setBossObject(mapId: string, active: boolean) {
       mapId,
       objects: {
         [key as number]: {
-          type: active ? 5 : 0,
+          type: active ? 6 : 0,
           previewMessage: 'Press X to challenge the boss',
           highlighted: active ? bossImage : blankImage,
           normal: active ? bossImage : blankImage,
