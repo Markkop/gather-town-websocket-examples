@@ -1,6 +1,6 @@
 # 📡 CodeCon-Gather API
 
-An API that interacts with Gather.town API and customizes the user experience on the CodeCon Tech Event!
+Simple examples on how to interact with Gather.town Web Socket API 
 
 ## How to Develop
 
