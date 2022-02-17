@@ -1,4 +1,4 @@
-# 📡 CodeCon-Gather API
+# 📡 Gather.town Websocket API interaction examples
 
 Simple examples on how to interact with Gather.town Web Socket API 
 
