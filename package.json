@@ -1,7 +1,7 @@
 {
-  "name": "codecon-gather-api",
+  "name": "gather-town-websocket-examples",
   "version": "1.0.0",
-  "description": "An API that interacts with Gather.town API and customizes the user experience on the CodeCon Tech Event",
+  "description": "Examples on how to interact with Gather.town Web Socket API ",
   "main": "index.js",
   "engines": {
     "node": ">=14"
